@@ -8,5 +8,4 @@ import java.util.List;
 
 @Repository
 public interface AdoptRepository extends JpaRepository<Adopt, Long> {
-    List<Adopt> findByUserId(Long Ano);
 }
