@@ -9,11 +9,11 @@ import javax.persistence.*;
 import java.util.List;
 
 @Data
-@Entity
+@Entity(name = "regionTbl")
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "RegionTbl"/*, uniqueConstraints = {@UniqueConstraint(columnNames = "phone_number")}*/)
+@Table(name = "regionTbl")
 public class Region {
     @Id
     public String regionID;

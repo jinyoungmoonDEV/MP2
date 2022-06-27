@@ -11,11 +11,11 @@ import java.util.List;
 import java.util.Set;
 
 @Data
-@Entity
+@Entity(name = "adoptTbl")
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "AdoptTbl"/*, uniqueConstraints = {@UniqueConstraint(columnNames = "phone_number")}*/)
+@Table(name = "adoptTbl"/*, uniqueConstraints = {@UniqueConstraint(columnNames = "phone_number")}*/)
 public class Adopt {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,5 +38,5 @@ public class Adopt {
 
     @OneToMany
     @JoinColumn(name = "ano")
-    private List<AReply> aReplySet;
+    private List<AReply> areplySet;
 }

@@ -8,11 +8,11 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Data
-@Entity
+@Entity(name = "areplyTbl")
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "AReplyTbl"/*, uniqueConstraints = {@UniqueConstraint(columnNames = "phone_number")}*/)
+@Table(name = "areplyTbl"/*, uniqueConstraints = {@UniqueConstraint(columnNames = "phone_number")}*/)
 public class AReply {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

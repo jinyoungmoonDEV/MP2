@@ -6,6 +6,7 @@ import com.example.MP2.entity.User;
 import com.example.MP2.security.TokenProvider;
 import com.example.MP2.service.UserService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -18,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 @RestController
 @RequestMapping("/auth")
-@Component
+@ComponentScan
 public class UserController {
     //@Autowired
     private UserService userService;

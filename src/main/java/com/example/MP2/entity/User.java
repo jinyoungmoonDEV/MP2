@@ -10,11 +10,11 @@ import java.util.List;
 import java.util.Set;
 
 @Data
-@Entity
+@Entity(name = "userTbl")
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "UserTbl"/*, uniqueConstraints = {@UniqueConstraint(columnNames = "phone_number")}*/)
+@Table(name = "userTbl"/*, uniqueConstraints = {@UniqueConstraint(columnNames = "phone_number")}*/)
 public class User {
     @Id
     @Column(name = "phoneNumber", length = 11)

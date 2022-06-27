@@ -8,11 +8,11 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Data
-@Entity
+@Entity(name = "addressTbl")
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "AddressTbl"/*, uniqueConstraints = {@UniqueConstraint(columnNames = "phone_number")}*/)
+@Table(name = "addressTbl"/*, uniqueConstraints = {@UniqueConstraint(columnNames = "phone_number")}*/)
 public class Address {
     @Id
     public String AddressID;

@@ -10,11 +10,11 @@ import java.util.List;
 import java.util.Set;
 
 @Data
-@Entity
+@Entity(name = "boardTbl")
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "BoardTbl"/*, uniqueConstraints = {@UniqueConstraint(columnNames = "phone_number")}*/)
+@Table(name = "boardTbl"/*, uniqueConstraints = {@UniqueConstraint(columnNames = "phone_number")}*/)
 public class Board {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
