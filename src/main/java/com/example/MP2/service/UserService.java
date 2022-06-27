@@ -1,5 +1,7 @@
 package com.example.MP2.service;
 
+import com.example.MP2.entity.User;
+import com.example.MP2.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;

@@ -1,6 +1,6 @@
 package com.example.MP2.repository;
 
-import com.example.MiniProject2.entity.Adopt;
+import com.example.MP2.entity.Adopt;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

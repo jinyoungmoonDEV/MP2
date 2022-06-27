@@ -1,5 +1,10 @@
 package com.example.MP2.controller;
 
+import com.example.MP2.dto.ResponseDTO;
+import com.example.MP2.dto.UserDTO;
+import com.example.MP2.entity.User;
+import com.example.MP2.security.TokenProvider;
+import com.example.MP2.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -28,17 +33,15 @@ public class UserController {
         try {
             // 리퀘스트를 이용해 저장할 유저 만들기
             User user = User.builder()
-                    .PhoneNumber(userDTO.getPhoneNumber())
-                    .Address(userDTO.getAddress())
-                    .PassWord(passwordEncoder.encode(userDTO.getPassWord()))
-                    .UserId(userDTO.getUserId())
+                    .phoneNumber(userDTO.getPhoneNumber())
+                    .passWord(passwordEncoder.encode(userDTO.getPassWord()))
+                    .userID(userDTO.getUserID())
                     .build();
             // 서비스를 이용해 리파지토리에 유저 저장
             User registeredUser = userService.create(user);
             UserDTO responseUserDTO = UserDTO.builder()
-                    .PhoneNumber(registeredUser.getPhoneNumber())
-                    .Address(registeredUser.getAddress())
-                    .UserId(registeredUser.getUserId())
+                    .phoneNumber(registeredUser.getPhoneNumber())
+                    .userID(registeredUser.getUserID())
                     .build();
             // 유저 정보는 항상 하나이므로 그냥 리스트로 만들어야하는 ResponseDTO를 사용하지 않고 그냥 UserDTO 리턴.
             return ResponseEntity.ok(responseUserDTO);
@@ -58,11 +61,11 @@ public class UserController {
                 userDTO.getPassWord(),
                 passwordEncoder);
 
-        if(user != null) {
+        if (user != null) {
             // 토큰 생성
             final String token = tokenProvider.create(user);
             final UserDTO responseUserDTO = UserDTO.builder()
-                    .PhoneNumber(user.getPhoneNumber())
+                    .phoneNumber(user.getPhoneNumber())
                     .token(token)
                     .build();
             return ResponseEntity.ok().body(responseUserDTO);
@@ -74,4 +77,5 @@ public class UserController {
                     .badRequest()
                     .body(responseDTO);
         }
+    }
 }
