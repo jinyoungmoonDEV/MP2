@@ -11,7 +11,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class UserDTO {
     private String token;
-    private String phoneNumber;
-    private String passWord;
-    private String userID;
+    private String phonenumber;
+    private String userid;
+    private String password;
+    private String id;
 }

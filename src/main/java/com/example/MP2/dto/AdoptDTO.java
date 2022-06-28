@@ -12,31 +12,11 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class AdoptDTO {
     public long ano;
-    public String regionID;
-    public String userID;
+    public String rcode;
+    public String userid;
     private String title;
     private String contents;
     private Blob image;
-    private LocalDateTime regDate;
-    private LocalDateTime modDate;
-
-    public AdoptDTO(final Adopt entity) {
-        this.ano = entity.getAno();
-        this.regionID = entity.getRegionID();
-        this.userID = entity.getUserID();
-        this.title = entity.getTitle();
-        this.contents = entity.getContents();
-        this.image = entity.getImage();
-    }
-
-    public static Adopt toEntity(final AdoptDTO dto) {
-        return Adopt.builder()
-                .ano(dto.getAno())
-                .userID(dto.getUserID())
-                .regionID(dto.getRegionID())
-                .title(dto.getTitle())
-                .contents(dto.getContents())
-                .image(dto.getImage())
-                .build();
-    }
+    private LocalDateTime regdate;
+    private LocalDateTime moddate;
 }

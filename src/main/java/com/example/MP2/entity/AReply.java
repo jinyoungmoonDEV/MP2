@@ -8,22 +8,25 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Data
-@Entity(name = "areplyTbl")
+@Entity(name = "areply_tbl")
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "areplyTbl"/*, uniqueConstraints = {@UniqueConstraint(columnNames = "phone_number")}*/)
+@Table(name = "areply_tbl"/*, uniqueConstraints = {@UniqueConstraint(columnNames = "phone_number")}*/)
 public class AReply {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long rano;
 
-    @Column(name = "Ano", nullable = false, unique = true)
-    public long ano;
 
-    @Column(name = "AReply", length = 10000, nullable = false)
+    @Column(name = "areply", length = 10000, nullable = false)
     private String areply;
 
-    @Column(name = "UserID", length = 20, nullable = false)
-    public String userID;
+    @ManyToOne
+    @JoinColumn(name = "ano")
+    private Adopt adopt;
+
+    @ManyToOne
+    @JoinColumn(name = "userid")
+    private User user;
 }

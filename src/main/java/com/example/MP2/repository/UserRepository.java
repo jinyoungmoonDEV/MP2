@@ -2,9 +2,11 @@ package com.example.MP2.repository;
 
 import com.example.MP2.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface UserRepository extends JpaRepository<User, String> {
-    User findByphoneNumber(String phoneNumber);
-    Boolean existsByphoneNumber(String phoneNumber);
-    User findByPhoneNumberAndPassWord(String phoneNumber, String passWord);
+    User findByPhonenumber(String phonenumber);
+    Boolean existsByPhonenumber(String phonenumber);
+    User findByPhonenumberAndPassword(String phonenumber, String password);
 }

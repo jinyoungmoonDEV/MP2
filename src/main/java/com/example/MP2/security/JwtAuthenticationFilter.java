@@ -1,6 +1,7 @@
 package com.example.MP2.security;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AbstractAuthenticationToken;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.authority.AuthorityUtils;
@@ -21,7 +22,7 @@ import java.io.IOException;
 @Component
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
-	//@Autowired
+	@Autowired
 	private TokenProvider tokenProvider;
 
 	@Override
@@ -30,6 +31,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 			// 리퀘스트에서 토큰 가져오기.
 			String token = parseBearerToken(request);
 			log.info("Filter is running...");
+			log.info(token);
 			// 토큰 검사하기. JWT이므로 인가 서버에 요청 하지 않고도 검증 가능.
 			if (token != null && !token.equalsIgnoreCase("null")) {
 				// userId 가져오기. 위조 된 경우 예외 처리 된다.

@@ -22,6 +22,30 @@ public class TokenProvider {
 						Instant.now()
 						.plus(1, ChronoUnit.DAYS));
 
+	// JwtTokenProvider
+
+	// jwt 토큰 생성
+/*	public String createToken(String userPk) {
+		Claims claims = Jwts.claims().setSubject(userPk);
+		Date now = new Date();
+		return Jwts.builder()
+				.setClaims(claims)
+				.setIssuedAt(now)
+				.setExpiration(new Date(now.getTime() + tokenValidMillisecond))
+				.signWith(SignatureAlgorithm.HS256, secretKey)
+				.compact();
+	}
+
+	// jwt refresh 토큰 생성
+	public String createRefreshToken() {
+		Date now = new Date();
+		return Jwts.builder()
+				.setIssuedAt(now)
+				.setExpiration(new Date(now.getTime() + refreshTokenValidMillisecond))
+				.signWith(SignatureAlgorithm.HS256, secretKey)
+				.compact();
+	}*/
+
 		/*
 		{ // header
 		  "alg":"HS512"
@@ -40,8 +64,8 @@ public class TokenProvider {
 						// header에 들어갈 내용 및 서명을 하기 위한 SECRET_KEY
 						.signWith(SignatureAlgorithm.HS512, SECRET_KEY)
 						// payload에 들어갈 내용
-						.setSubject(user.getPhoneNumber()) // sub : subject
-						.setIssuer("demo app") // iss  : Issuer
+						.setSubject(user.getId()) // sub : subject
+						.setIssuer("MP2 app") // iss  : Issuer
 						.setIssuedAt(new Date()) // iat : issue at
 						.setExpiration(expiryDate) // exp : expiration
 						.compact();

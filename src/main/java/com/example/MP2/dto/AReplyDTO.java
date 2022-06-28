@@ -15,7 +15,7 @@ public class AReplyDTO {
     private long rano;
     public long ano;
     private String areply;
-    public String userID;
-    private LocalDateTime regDate;
-    private LocalDateTime modDate;
+    public String userid;
+    private LocalDateTime regdate;
+    private LocalDateTime moddate;
 }

@@ -11,21 +11,15 @@ import java.util.List;
 import java.util.Set;
 
 @Data
-@Entity(name = "adoptTbl")
+@Entity(name = "adopt_tbl")
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "adoptTbl"/*, uniqueConstraints = {@UniqueConstraint(columnNames = "phone_number")}*/)
+@Table(name = "adopt_tbl"/*, uniqueConstraints = {@UniqueConstraint(columnNames = "phone_number")}*/)
 public class Adopt {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public long ano;
-
-    @Column(name = "regionID", length = 10, nullable = false)
-    public String regionID;
-
-    @Column(name = "userID", length = 20, nullable = false)
-    public String userID;
 
     @Column(name = "title", length = 30, nullable = false)
     private String title;
@@ -36,7 +30,11 @@ public class Adopt {
     @Column(name = "image",length = 10000)
     private Blob image;
 
-    @OneToMany
-    @JoinColumn(name = "ano")
-    private List<AReply> areplySet;
+    @ManyToOne
+    @JoinColumn(name = "rcode")
+    private Region region;
+
+    @ManyToOne
+    @JoinColumn(name = "userid")
+    private User user;
 }

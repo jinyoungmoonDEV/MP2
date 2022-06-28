@@ -9,16 +9,16 @@ import javax.persistence.*;
 import java.util.List;
 
 @Data
-@Entity(name = "regionTbl")
+@Entity(name = "region_tbl")
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "regionTbl")
+@Table(name = "region_tbl")
 public class Region {
     @Id
-    public String regionID;
+    private String regionid;
 
-    @OneToOne
-    @JoinColumn(name = "regionID")
-    private Address address;
+    @Column(name = "address")
+    private String address;
+
 }

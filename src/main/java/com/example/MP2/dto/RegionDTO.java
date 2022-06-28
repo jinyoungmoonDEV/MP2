@@ -10,5 +10,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class RegionDTO {
-    private String regionID;
+    private String rcode;
+    private String address;
 }

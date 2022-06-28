@@ -15,8 +15,8 @@ public class BReplyDTO {
     private long rbno;
     public long bno;
     private String breply;
-    public String userID;
-    private LocalDateTime regDate;
-    private LocalDateTime modDate;
+    public String userid;
+    private LocalDateTime regdate;
+    private LocalDateTime moddate;
 
 }
