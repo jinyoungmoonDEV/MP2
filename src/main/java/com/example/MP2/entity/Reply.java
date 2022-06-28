@@ -1,9 +1,6 @@
 package com.example.MP2.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -12,14 +9,19 @@ import javax.persistence.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@ToString(exclude = "bno")
 @Table(name = "breply_tbl"/*, uniqueConstraints = {@UniqueConstraint(columnNames = "phone_number")}*/)
-public class BReply {
+public class Reply extends Base{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long rbno;
+    private long rno;
 
-    @Column(name = "breply", length = 10, nullable = false)
-    private String breply;
+    @Column(name = "reply", length = 10, nullable = false)
+    private String reply;
+
+/*    @Column(name = "userid", length = 10, nullable = false)
+    private String userid;*/
 
     @ManyToOne
     @JoinColumn(name = "bno")
@@ -27,6 +29,6 @@ public class BReply {
 
     @ManyToOne
     @JoinColumn(name = "userid")
-    private User user;
+    private User userid;
 
 }

@@ -1,9 +1,11 @@
 package com.example.MP2.entity;
 
+import com.example.MP2.dto.RegionDTO;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.jpa.repository.Query;
 
 import javax.persistence.*;
 import java.util.List;
@@ -16,9 +18,8 @@ import java.util.List;
 @Table(name = "region_tbl")
 public class Region {
     @Id
-    private String regionid;
+    private String rcode;
 
     @Column(name = "address")
     private String address;
-
 }

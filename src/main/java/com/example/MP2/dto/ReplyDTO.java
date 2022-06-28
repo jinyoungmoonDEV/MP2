@@ -1,21 +1,23 @@
 package com.example.MP2.dto;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class AReplyDTO {
+public class ReplyDTO {
 
-    private long rano;
-    public long ano;
-    private String areply;
+    private long rno;
+    public long bno;
+    private String reply;
     public String userid;
     private LocalDateTime regdate;
     private LocalDateTime moddate;
+
 }

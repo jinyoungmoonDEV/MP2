@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.sql.Blob;
 import java.util.List;
 import java.util.Set;
 
@@ -26,6 +27,9 @@ public class Board {
     @Column(name = "contents",length = 10000, nullable = false)
     private String contents;
 
+    @Column
+    private Blob image;
+
     @ManyToOne
     @JoinColumn(name = "rcode")
     private Region region;
@@ -33,4 +37,12 @@ public class Board {
     @ManyToOne
     @JoinColumn(name = "userid")
     private User user;
+
+    public void changeTitle(String title){
+        this.title = title;
+    }
+
+    public void changeContent(String content){
+        this.contents = content;
+    }
 }
