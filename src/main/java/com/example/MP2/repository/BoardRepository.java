@@ -12,7 +12,6 @@ import java.util.List;
 
 @Repository
 public interface BoardRepository extends JpaRepository<Board, Long>{
-
     // 한개의 로우(object) 내에 Object[]로 나옴
     // Board를 사용하고 있지만 Member를 같이 조회해야 하는 상황에서 사용
     @Query("select b, u from Board  b left join b.user u where b.bno =:bno")

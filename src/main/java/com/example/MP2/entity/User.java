@@ -1,9 +1,6 @@
 package com.example.MP2.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -16,6 +13,8 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "user_tbl", uniqueConstraints = {@UniqueConstraint(columnNames = "phonenumber")})
+@Getter
+@ToString(exclude = "userid")
 public class User {
     @Id
     @GeneratedValue(generator="system-uuid")

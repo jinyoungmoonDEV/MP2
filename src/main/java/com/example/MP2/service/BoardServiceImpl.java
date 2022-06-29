@@ -8,6 +8,7 @@ import com.example.MP2.entity.Region;
 import com.example.MP2.entity.User;
 import com.example.MP2.repository.BoardRepository;
 import com.example.MP2.repository.ReplyRepository;
+import com.example.MP2.repository.SearchBoardRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -25,6 +26,9 @@ public class BoardServiceImpl implements BoardService{
     private final BoardRepository repository;
 
     @Autowired
+    private final SearchBoardRepository searchBoardRepository;
+
+    @Autowired
     private final ReplyRepository replyRepository;
 
     @Override
@@ -38,11 +42,11 @@ public class BoardServiceImpl implements BoardService{
     @Override
     public PageResultDTO<BoardDTO, Object[]> getList(PageRequestDTO pageRequestDTO) {
 
-        Function<Object[], BoardDTO> fn = (en -> entityToDTO((Board) en[0], (User) en[1], (Long) en[2]));
+        Function<Object[], BoardDTO> fn = (en -> entityToDTO((Board) en[0], (User) en[1], (Region) en[2]));
 
         // Page<Object[]> result = repository.getBoardWithReplyCount(pageRequestDTO.getPageable(Sort.by("bno").descending()));
 
-        Page<Object[]> result = repository.searchPage(
+        Page<Object[]> result = searchBoardRepository.searchPage(
                 pageRequestDTO.getType(),
                 pageRequestDTO.getKeyword(),
                 pageRequestDTO.getPageable(Sort.by("bno").descending()));
@@ -57,7 +61,7 @@ public class BoardServiceImpl implements BoardService{
 
         Object[] arr = (Object[]) result;
 
-        return entityToDTO((Board)arr[0], (User)arr[1], (Region)arr[2], (Long)arr[3]);
+        return entityToDTO((Board)arr[0], (User)arr[1], (Region)arr[2]);
     }
 
     @Transactional

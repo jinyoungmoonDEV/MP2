@@ -22,7 +22,7 @@ public interface BoardService {
                 .title(dto.getTitle())
                 .contents(dto.getContents())
                 .image(dto.getImage())
-                .user(user)
+                .userid(user)
                 .build();
         return board;
     }
@@ -31,7 +31,7 @@ public interface BoardService {
     // 목록처리
     PageResultDTO<BoardDTO, Object[]> getList(PageRequestDTO pageRequestDTO);
 
-    default BoardDTO entityToDTO(Board board, User user, Region region, Long replyCount){
+    default BoardDTO entityToDTO(Board board, User user, Region region){
 
         BoardDTO boardDTO = BoardDTO.builder()
                 .bno(board.getBno())

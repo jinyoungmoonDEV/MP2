@@ -1,5 +1,6 @@
 package com.example.MP2.dto;
 
+import com.example.MP2.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,9 +15,9 @@ import java.time.LocalDateTime;
 public class ReplyDTO {
 
     private long rno;
-    public long bno;
+    private long bno;
     private String reply;
-    public String userid;
+    private User userid;
     private LocalDateTime regdate;
     private LocalDateTime moddate;
 

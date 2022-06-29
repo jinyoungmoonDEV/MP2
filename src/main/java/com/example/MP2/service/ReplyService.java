@@ -24,7 +24,7 @@ public interface ReplyService {
                 .rno(replyDTO.getRno())
                 .reply(replyDTO.getReply())
                 .userid(replyDTO.getUserid())
-                .board(board)
+                .bno(board)
                 .build();
 
         return reply;
@@ -37,8 +37,8 @@ public interface ReplyService {
                 .rno(reply.getRno())
                 .reply(reply.getReply())
                 .userid(reply.getUserid())
-                .regDate(reply.getRegDate())
-                .modDate(reply.getModDate())
+                .regdate(reply.getRegDate())
+                .moddate(reply.getModDate())
                 .build();
 
         return dto;

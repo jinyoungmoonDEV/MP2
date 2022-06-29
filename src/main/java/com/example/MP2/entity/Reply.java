@@ -4,7 +4,6 @@ import lombok.*;
 
 import javax.persistence.*;
 
-@Data
 @Entity(name = "breply_tbl")
 @Builder
 @NoArgsConstructor
@@ -25,7 +24,7 @@ public class Reply extends Base{
 
     @ManyToOne
     @JoinColumn(name = "bno")
-    private Board board;
+    private Board bno;
 
     @ManyToOne
     @JoinColumn(name = "userid")
